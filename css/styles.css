@@ -7,6 +7,7 @@ body {
 
 .container {
     padding: 1rem;
+    position: relative;
 }
 
 h1 a {
@@ -39,16 +40,117 @@ header .flex-container {
     justify-content: space-between;
 }
 
+header a svg {
+    width: 15px;
+    height: 15px;
+}
+
 .menu-icon {
     width: 40px;
     text-align: center;
+    cursor: pointer;
 }
+
+.main-menu li {
+    line-height: 85px;
+    margin: 0 25px;
+    border-bottom: 1px solid #e3eafe;
+    white-space: nowrap;
+}
+
+.main-menu li:last-of-type {
+    border-bottom: none;
+}
+
+.main-menu a {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #f89d70;
+    font-weight: 700;
+    display: block;
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+}
+
+.main-menu a:hover,
+.main-menu a:active {
+    background-color: #efeaf3;
+    border-radius: 5px;
+}
+
+.dropdown-menu a {
+    color: #00263e;
+    font-weight: 400;
+    text-transform: none;
+}
+
+.main-menu svg:last-of-type {
+    margin-left: auto;
+}
+
+.main-menu svg:first-of-type {
+    margin-right: 10px;
+}
+/* hide/show dropdowns with hover */
+
+.dropdown-menu {
+    max-height: 0;
+    overflow: hidden;
+}
+
+.main-menu li:hover > .dropdown-menu {
+    max-height: initial;
+}
+
+/* hide/show main menu with toggle icon */
+nav {
+    max-height: 0;
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    background-color: #fff;
+    width: 100vh;
+    transition: all 0.6s ease-in-out;
+}
+
+.show-nav {
+    max-height: 100vh;
+}
+
 
 
 @media only screen and (min-width: 1300px) {
     .container {
         padding: 1rem 0;
-        max-width: 75rem;
+        max-width: 65rem;
         margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        
+    }
+    
+    ul.main-menu {
+        display: flex;
+    }
+
+    .menu-icon {
+        display: none;
+    }
+
+    nav {
+        max-height: 100vh;
+        position: relative;
+        right: 0;     
+        border-bottom: none;  
+    } 
+
+    .main-menu li  {
+        border-bottom: none;
+    }
+
+    .dropdown-menu li {
+        border-bottom: 1px solid #e3eafe;
     }
 }
